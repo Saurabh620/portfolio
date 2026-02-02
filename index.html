@@ -1,136 +1,356 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Saurabh Rawat | Product Manager Portfolio</title>
-
-  <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-
-  <!-- GSAP -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saurabh Rawat | Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="dark-mode">
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
 
-<header class="nav">
-  <h2>Saurabh Rawat</h2>
-  <nav>
-    <a href="#about">About</a>
-    <a href="#experience">Experience</a>
-    <a href="#projects">Projects</a>
-    <a href="#skills">Skills</a>
-    <a href="#contact">Contact</a>
-  </nav>
-</header>
+    <nav class="navbar">
+        <div class="logo">SR.</div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="theme-toggle" id="theme-toggle">
+            <i class="fas fa-moon"></i>
+        </div>
+        <div class="hamburger">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+    </nav>
 
-<section class="hero">
-  <h1>Product Manager<br><span>& Business Analyst</span></h1>
-  <p>
-    I build user-centric products using data, workflows, wireframes, and execution.
-  </p>
-  <div class="hero-btns">
-    <a href="#projects" class="btn">View Work</a>
-    <a href="assets/resume.pdf" class="btn-outline" target="_blank">Resume</a>
-  </div>
-</section>
+    <header id="home" class="hero">
+        <div class="hero-content">
+            <div class="profile-container">
+                <!-- INSERT RESUME DATA HERE: Placeholder image as requested -->
+                <div class="profile-img-wrapper">
+                    <img src="profile.jpg" alt="Saurabh Rawat" class="profile-img" onerror="this.src='https://ui-avatars.com/api/?name=Saurabh+Rawat&background=random&size=200'">
+                </div>
+            </div>
+            <h1>Hi, I'm <span class="highlight">Saurabh Rawat</span></h1>
+            <h2 class="typing-text">I am a <span id="typing-element"></span><span class="cursor">|</span></h2>
+            <p class="hero-description">
+                Bridging the gap between business needs and technical solutions.
+            </p>
+            <div class="cta-buttons">
+                <a href="#contact" class="btn btn-primary">Contact Me</a>
+                <a href="#" class="btn btn-secondary"><i class="fas fa-download"></i> Download Resume</a>
+            </div>
+        </div>
+        <div class="scroll-down">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </header>
 
-<section id="about" class="section">
-  <h2>About Me</h2>
-  <p>
-    MCA graduate and Product-focused professional with hands-on experience in business analysis,
-    wireframing, QA testing, and SQL-backed decision-making. I have worked on enterprise platforms
-    across manufacturing, retail, and e-commerce domains, collaborating closely with stakeholders
-    and engineering teams.
-  </p>
-</section>
+    <section id="about" class="section">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-text scroll-reveal">
+                    <p>
+                        I am a results-driven <strong>Business Analyst</strong> and <strong>Product Enthusiast</strong> with a strong technical foundation in Computer Applications (MCA). 
+                        Currently working at TRIAD Technologies, I specialize in wireframing, scoping, and optimizing business platforms.
+                    </p>
+                    <p>
+                        My expertise lies in translating complex business requirements into functional digital solutions. 
+                        With a background in both development (SQL, Web Tech) and product management (Agile, Scrum), I ensure seamless collaboration between stakeholders and engineering teams.
+                    </p>
+                </div>
+                <div class="about-stats scroll-reveal delay-1">
+                    <div class="stat-item">
+                        <h3>2+</h3>
+                        <p>Years Tech Education</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>5+</h3>
+                        <p>Projects Delivered</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>MCA</h3>
+                        <p>Master's Degree</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<section id="experience" class="section">
-  <h2>Experience</h2>
+    <section id="skills" class="section">
+        <div class="container">
+            <h2 class="section-title">My Skills</h2>
+            
+            <div class="skills-grid">
+                <!-- Technical Skills -->
+                <div class="skill-category scroll-reveal">
+                    <h3><i class="fas fa-code"></i> Technical</h3>
+                    <div class="skill-bar">
+                        <div class="info">
+                            <p>SQL (MySQL)</p>
+                            <span class="percent">90%</span>
+                        </div>
+                        <div class="bar"><span class="progress" style="width: 90%"></span></div>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="info">
+                            <p>HTML / CSS</p>
+                            <span class="percent">85%</span>
+                        </div>
+                        <div class="bar"><span class="progress" style="width: 85%"></span></div>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="info">
+                            <p>Manual & Functional Testing</p>
+                            <span class="percent">80%</span>
+                        </div>
+                        <div class="bar"><span class="progress" style="width: 80%"></span></div>
+                    </div>
+                </div>
 
-  <div class="card">
-    <h3>Business Analyst — TRIAD Technologies</h3>
-    <span>Aug 2024 – Present</span>
-    <ul>
-      <li>Defined product workflows and functional enhancements for enterprise platforms</li>
-      <li>Conducted end-to-end testing and QA for system stability</li>
-      <li>Executed SQL queries for backend validation and optimization</li>
-    </ul>
-  </div>
+                <!-- Tools -->
+                <div class="skill-category scroll-reveal delay-1">
+                    <h3><i class="fas fa-tools"></i> Tools</h3>
+                    <div class="skill-bar">
+                        <div class="info">
+                            <p>Balsamiq & Figma</p>
+                            <span class="percent">85%</span>
+                        </div>
+                        <div class="bar"><span class="progress" style="width: 85%"></span></div>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="info">
+                            <p>Power BI & Tableau</p>
+                            <span class="percent">75%</span>
+                        </div>
+                        <div class="bar"><span class="progress" style="width: 75%"></span></div>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="info">
+                            <p>JIRA / Bug Tracking</p>
+                            <span class="percent">80%</span>
+                        </div>
+                        <div class="bar"><span class="progress" style="width: 80%"></span></div>
+                    </div>
+                </div>
 
-  <div class="card">
-    <h3>Associate Product Manager Intern — Bookchor</h3>
-    <span>May 2024 – Aug 2024</span>
-    <ul>
-      <li>Prioritized features based on user needs and business goals</li>
-      <li>Handled bug tracking, UAT, and cross-team coordination</li>
-      <li>Supported mobile app and website product delivery</li>
-    </ul>
-  </div>
-</section>
+                <!-- Soft Skills -->
+                <div class="skill-category scroll-reveal delay-2">
+                    <h3><i class="fas fa-users"></i> Professional</h3>
+                    <div class="skill-bar">
+                        <div class="info">
+                            <p>Agile & Scrum</p>
+                            <span class="percent">95%</span>
+                        </div>
+                        <div class="bar"><span class="progress" style="width: 95%"></span></div>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="info">
+                            <p>Product Management</p>
+                            <span class="percent">85%</span>
+                        </div>
+                        <div class="bar"><span class="progress" style="width: 85%"></span></div>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="info">
+                            <p>Process Optimization</p>
+                            <span class="percent">80%</span>
+                        </div>
+                        <div class="bar"><span class="progress" style="width: 80%"></span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<section id="projects" class="section">
-  <h2>Product Case Studies</h2>
+    <section id="experience" class="section">
+        <div class="container">
+            <h2 class="section-title">Experience</h2>
+            <div class="timeline">
+                
+                <!-- Experience Item 1 -->
+                <div class="timeline-item scroll-reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">Aug 2024 - Present</div>
+                    <div class="timeline-content">
+                        <h3>Business Analyst</h3>
+                        <h4>TRIAD Technologies Pvt Ltd</h4>
+                        <ul>
+                            <li>Assisted in wireframing, scoping, and functional enhancements for various business platforms.</li>
+                            <li>Conducted testing and quality assurance to ensure system reliability and performance.</li>
+                            <li>Managed and executed SQL queries for backend operations, ensuring data accuracy and process optimization.</li>
+                        </ul>
+                    </div>
+                </div>
 
-  <div class="grid">
-    <div class="project">
-      <h3>AkzoNobel Dulux Dealer Portal</h3>
-      <p>Wireframing, Testing, SQL</p>
-      <span>Improved dealer request tracking and replacement workflows</span>
-    </div>
+                <!-- Experience Item 2 -->
+                <div class="timeline-item scroll-reveal delay-1">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">May 2024 - Aug 2024</div>
+                    <div class="timeline-content">
+                        <h3>Associate Product Manager Intern</h3>
+                        <h4>Bookchor</h4>
+                        <ul>
+                            <li>Supported the Bookchor mobile app and website development by prioritizing features based on user needs.</li>
+                            <li>Conducted bug tracking, analysis, and testing, collaborating with developers for issue resolution.</li>
+                        </ul>
+                    </div>
+                </div>
 
-    <div class="project">
-      <h3>Bluestore by AkzoNobel</h3>
-      <p>UX Design, QA</p>
-      <span>Optimized order management and dealer interactions</span>
-    </div>
+            </div>
+        </div>
+    </section>
 
-    <div class="project">
-      <h3>LX Hausys Warranty Portal</h3>
-      <p>Testing & Validation</p>
-      <span>Ensured data accuracy for warranty claim management</span>
-    </div>
+    <section id="projects" class="section">
+        <div class="container">
+            <h2 class="section-title">Projects</h2>
+            <div class="projects-grid">
+                
+                <!-- Project 1 -->
+                <div class="project-card scroll-reveal">
+                    <div class="card-content">
+                        <h3>AkzoNobel Dulux Portal</h3>
+                        <span class="tech-tag">Wireframing</span>
+                        <span class="tech-tag">SQL</span>
+                        <span class="tech-tag">Testing</span>
+                        <p>Designed and structured the dealer management portal, focusing on machine requests and replacement history tracking. Conducted process validation for seamless performance.</p>
+                        <div class="card-links">
+                            <a href="#" class="btn-sm"><i class="fab fa-github"></i> Details</a>
+                        </div>
+                    </div>
+                </div>
 
-    <div class="project">
-      <h3>Addes by Amazon</h3>
-      <p>SQL & Data Operations</p>
-      <span>Managed offline product workflows and backend queries</span>
-    </div>
+                <!-- Project 2 -->
+                <div class="project-card scroll-reveal delay-1">
+                    <div class="card-content">
+                        <h3>Bluestore by AkzoNobel</h3>
+                        <span class="tech-tag">UX Design</span>
+                        <span class="tech-tag">QA</span>
+                        <p>Led wireframing and workflow development for order management. Conducted extensive testing to identify functional gaps and improve platform performance.</p>
+                        <div class="card-links">
+                            <a href="#" class="btn-sm"><i class="fab fa-github"></i> Details</a>
+                        </div>
+                    </div>
+                </div>
 
-    <div class="project">
-      <h3>REDI Platform</h3>
-      <p>Wireframing & QA</p>
-      <span>Designed intuitive retailer-distributor workflows</span>
-    </div>
-  </div>
-</section>
+                <!-- Project 3 -->
+                <div class="project-card scroll-reveal delay-2">
+                    <div class="card-content">
+                        <h3>Redi Platform</h3>
+                        <span class="tech-tag">Balsamiq</span>
+                        <span class="tech-tag">Wireframing</span>
+                        <p>Retailer and Distributor Platform. Designed intuitive wireframes to enhance navigation and conducted manual validation for bug resolution.</p>
+                        <div class="card-links">
+                            <a href="#" class="btn-sm"><i class="fab fa-github"></i> Details</a>
+                        </div>
+                    </div>
+                </div>
 
-<section id="skills" class="section">
-  <h2>Skills & Tools</h2>
+                <!-- Project 4 -->
+                <div class="project-card scroll-reveal delay-3">
+                    <div class="card-content">
+                        <h3>Addes by Amazon</h3>
+                        <span class="tech-tag">Data Management</span>
+                        <span class="tech-tag">SQL</span>
+                        <p>Managed Amazon’s offline product management portal. Optimized workflows for Addes ARE AM App to improve system performance.</p>
+                        <div class="card-links">
+                            <a href="#" class="btn-sm"><i class="fab fa-github"></i> Details</a>
+                        </div>
+                    </div>
+                </div>
 
-  <div class="skills">
-    <span>Product Management</span>
-    <span>Business Analysis</span>
-    <span>Wireframing (Figma, Balsamiq)</span>
-    <span>QA & Testing</span>
-    <span>SQL (MySQL)</span>
-    <span>Agile / Scrum</span>
-    <span>Power BI</span>
-    <span>Tableau (Basic)</span>
-  </div>
-</section>
+            </div>
+        </div>
+    </section>
 
-<section id="contact" class="section contact">
-  <h2>Let’s Build Something</h2>
-  <p>Email: Rawatsaurabh620@gmail.com</p>
-  <p>LinkedIn: linkedin.com/in/saurabhrawat7june</p>
-</section>
+    <section id="education" class="section">
+        <div class="container">
+            <h2 class="section-title">Education</h2>
+            <div class="education-grid">
+                <div class="education-card scroll-reveal">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h3>Masters in Computer Application</h3>
+                    <h4>Jagannath University</h4>
+                    <p class="date">2022 - 2024</p>
+                </div>
+                <div class="education-card scroll-reveal delay-1">
+                    <i class="fas fa-university"></i>
+                    <h3>Bachelors in Computer Application</h3>
+                    <h4>Singhania University</h4>
+                    <p class="date">2019 - 2022</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<footer>
-  © 2026 Saurabh Rawat • Product Portfolio
-</footer>
+    <section id="contact" class="section">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-container">
+                <div class="contact-info scroll-reveal">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email</h4>
+                            <p>Rawatsaurabh620@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>Phone</h4>
+                            <p>+91 6307014942</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Location</h4>
+                            <p>New Delhi, India</p>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="https://linkedin.com/in/saurabhrawat7june" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                        <!-- Placeholder social links -->
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                
+                <form id="contact-form" class="contact-form scroll-reveal delay-1">
+                    <div class="form-group">
+                        <input type="text" id="name" required placeholder=" ">
+                        <label for="name">Name</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" required placeholder=" ">
+                        <label for="email">Email</label>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" required placeholder=" " rows="5"></textarea>
+                        <label for="message">Message</label>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                    <p id="form-status" class="form-status"></p>
+                </form>
+            </div>
+        </div>
+    </section>
 
-<script src="script.js"></script>
+    <footer>
+        <p>&copy; 2026 Saurabh Rawat. Built with <i class="fas fa-heart"></i> & Code.</p>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
