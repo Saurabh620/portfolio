@@ -1,209 +1,348 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Saurabh Rawat | Portfolio</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-</head>
-<body class="dark-mode">
-    <div class="cursor-dot"></div>
-    <div class="cursor-outline"></div>
+    <title>Saurabh Rawat | Strategic Business Analyst & Product Specialist</title>
+    <meta name="description"
+        content="Portfolio of Saurabh Rawat, a Business Analyst and Product Specialist bridging the gap between technical execution and business strategy.">
 
-    <nav class="navbar">
-        <div class="logo">SR.</div>
-        <ul class="nav-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#experience">Experience</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-        <div class="theme-toggle" id="theme-toggle">
-            <i class="fas fa-moon"></i>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="antialiased text-slate-400 bg-slate-900 selection:bg-indigo-500 selection:text-white">
+
+    <!-- Background Effects -->
+    <div class="fixed inset-0 z-0 pointer-events-none">
+        <div
+            class="absolute top-0 left-1/4 w-96 h-96 bg-indigo-500/20 rounded-full blur-3xl mix-blend-screen animate-pulse-slow">
         </div>
-        <div class="hamburger">
-            <div class="bar"></div>
-            <div class="bar"></div>
-            <div class="bar"></div>
+        <div
+            class="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl mix-blend-screen animate-pulse-slow delay-1000">
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 transition-all duration-300 backdrop-blur-md border-b border-white/5" id="navbar">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="#" class="logo text-2xl font-bold tracking-tight text-white group">
+                SR<span class="text-indigo-400">.</span>
+            </a>
+
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="#about" class="nav-link text-sm font-medium hover:text-indigo-400 transition-colors">Abort</a>
+                <a href="#experience"
+                    class="nav-link text-sm font-medium hover:text-indigo-400 transition-colors">Experience</a>
+                <a href="#projects"
+                    class="nav-link text-sm font-medium hover:text-indigo-400 transition-colors">Work</a>
+                <a href="#contact"
+                    class="nav-link text-sm font-medium hover:text-indigo-400 transition-colors">Contact</a>
+
+                <button id="theme-toggle"
+                    class="p-2 rounded-full hover:bg-white/5 text-slate-400 hover:text-white transition-colors">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+
+            <button class="md:hidden text-2xl text-white" id="menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
         </div>
     </nav>
 
-    <header id="home" class="hero">
-        <div class="hero-content">
-            <div class="profile-container">
-                <!-- INSERT RESUME DATA HERE: Placeholder image as requested -->
-                <div class="profile-img-wrapper">
-                    <img src="profile.jpg" alt="Saurabh Rawat" class="profile-img" onerror="this.src='https://ui-avatars.com/api/?name=Saurabh+Rawat&background=random&size=200'">
+    <!-- Mobile MenuOverlay -->
+    <div id="mobile-menu"
+        class="fixed inset-0 z-40 bg-slate-900 transform translate-x-full transition-transform duration-300 md:hidden flex items-center justify-center">
+        <div class="flex flex-col space-y-8 text-center">
+            <a href="#about" class="text-2xl font-medium text-white hover:text-indigo-400 mobile-link">About</a>
+            <a href="#experience"
+                class="text-2xl font-medium text-white hover:text-indigo-400 mobile-link">Experience</a>
+            <a href="#projects" class="text-2xl font-medium text-white hover:text-indigo-400 mobile-link">Work</a>
+            <a href="#contact" class="text-2xl font-medium text-white hover:text-indigo-400 mobile-link">Contact</a>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <header class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden" id="home">
+        <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center relative z-10 w-full">
+            <div class="order-2 lg:order-1 space-y-8 animate-fade-up">
+                <div
+                    class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-sm font-medium">
+                    <span class="relative flex h-2 w-2">
+                        <span
+                            class="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-indigo-500"></span>
+                    </span>
+                    <span>Available for New Operations</span>
+                </div>
+
+                <h1 class="text-5xl lg:text-7xl font-bold text-white tracking-tight leading-tight">
+                    Translating Data into <br>
+                    <span
+                        class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400 typing-text"></span>
+                </h1>
+
+                <p class="text-lg text-slate-400 max-w-xl leading-relaxed">
+                    I bridge the gap between complex business requirements and robust technical solutions. A strategic
+                    Business Analyst and Product specialist dedicated to optimizing workflows and delivering
+                    user-centric digital products.
+                </p>
+
+                <div class="flex flex-wrap gap-4 pt-2">
+                    <a href="#projects" class="btn btn-primary group">
+                        View Selected Works
+                        <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                    <a href="#contact" class="btn btn-outline">
+                        Start a Conversation
+                    </a>
+                </div>
+
+                <div class="pt-8 flex items-center gap-6 text-slate-500">
+                    <a href="https://linkedin.com/in/saurabhrawat7june" target="_blank"
+                        class="hover:text-indigo-400 transition-colors text-2xl"><i class="fab fa-linkedin"></i></a>
+                    <a href="mailto:Rawatsaurabh620@gmail.com"
+                        class="hover:text-indigo-400 transition-colors text-2xl"><i class="fas fa-envelope"></i></a>
+                    <div class="h-px bg-slate-700 flex-grow max-w-[100px]"></div>
+                    <span class="text-sm">New Delhi, India</span>
                 </div>
             </div>
-            <h1>Hi, I'm <span class="highlight">Saurabh Rawat</span></h1>
-            <h2 class="typing-text">I am a <span id="typing-element"></span><span class="cursor">|</span></h2>
-            <p class="hero-description">
-                Bridging the gap between business needs and technical solutions.
-            </p>
-            <div class="cta-buttons">
-                <a href="#contact" class="btn btn-primary">Contact Me</a>
-                <a href="#" class="btn btn-secondary"><i class="fas fa-download"></i> Download Resume</a>
+
+            <div class="order-1 lg:order-2 flex justify-center lg:justify-end animate-fade-in relative">
+                <div class="relative w-72 h-72 lg:w-96 lg:h-96">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-tr from-indigo-500 to-purple-500 rounded-full blur-2xl opacity-30 animate-pulse-slow">
+                    </div>
+                    <!-- EDITABLE CONTENT: Replace src with actual profile image -->
+                    <img src="https://ui-avatars.com/api/?name=Saurabh+Rawat&background=0f172a&color=a5b4fc&size=500&font-size=0.3"
+                        alt="Saurabh Rawat"
+                        class="relative w-full h-full object-cover rounded-full border-2 border-white/10 shadow-2xl z-10 filter grayscale hover:grayscale-0 transition-all duration-500">
+
+                    <!-- Floating Cards -->
+                    <div
+                        class="absolute top-10 -left-10 bg-slate-800/80 backdrop-blur-md p-4 rounded-xl border border-white/10 shadow-xl z-20 animate-float hidden md:block">
+                        <div class="flex items-center gap-3">
+                            <div
+                                class="w-10 h-10 rounded-lg bg-indigo-500/20 flex items-center justify-center text-indigo-400">
+                                <i class="fas fa-database"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-slate-400">Expertise</p>
+                                <p class="text-sm font-bold text-white">SQL Optimization</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div
+                        class="absolute bottom-10 -right-4 bg-slate-800/80 backdrop-blur-md p-4 rounded-xl border border-white/10 shadow-xl z-20 animate-float delay-1000 hidden md:block">
+                        <div class="flex items-center gap-3">
+                            <div
+                                class="w-10 h-10 rounded-lg bg-purple-500/20 flex items-center justify-center text-purple-400">
+                                <i class="fas fa-layer-group"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-slate-400">Focus</p>
+                                <p class="text-sm font-bold text-white">Product Strategy</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="scroll-down">
+
+        <a href="#about"
+            class="absolute bottom-8 left-1/2 -translate-x-1/2 text-slate-500 hover:text-white transition-colors animate-bounce">
             <i class="fas fa-chevron-down"></i>
-        </div>
+        </a>
     </header>
 
-    <section id="about" class="section">
-        <div class="container">
-            <h2 class="section-title">About Me</h2>
-            <div class="about-content">
-                <div class="about-text scroll-reveal">
-                    <p>
-                        I am a results-driven <strong>Business Analyst</strong> and <strong>Product Enthusiast</strong> with a strong technical foundation in Computer Applications (MCA). 
-                        Currently working at TRIAD Technologies, I specialize in wireframing, scoping, and optimizing business platforms.
-                    </p>
-                    <p>
-                        My expertise lies in translating complex business requirements into functional digital solutions. 
-                        With a background in both development (SQL, Web Tech) and product management (Agile, Scrum), I ensure seamless collaboration between stakeholders and engineering teams.
-                    </p>
-                </div>
-                <div class="about-stats scroll-reveal delay-1">
-                    <div class="stat-item">
-                        <h3>2+</h3>
-                        <p>Years Tech Education</p>
-                    </div>
-                    <div class="stat-item">
-                        <h3>5+</h3>
-                        <p>Projects Delivered</p>
-                    </div>
-                    <div class="stat-item">
-                        <h3>MCA</h3>
-                        <p>Master's Degree</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <!-- About Section -->
+    <section id="about" class="py-24 relative overflow-hidden bg-slate-900/50">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-16 items-start">
+                <div class="space-y-6 reveal">
+                    <h2 class="section-heading">About My Journey</h2>
 
-    <section id="skills" class="section">
-        <div class="container">
-            <h2 class="section-title">My Skills</h2>
-            
-            <div class="skills-grid">
-                <!-- Technical Skills -->
-                <div class="skill-category scroll-reveal">
-                    <h3><i class="fas fa-code"></i> Technical</h3>
-                    <div class="skill-bar">
-                        <div class="info">
-                            <p>SQL (MySQL)</p>
-                            <span class="percent">90%</span>
-                        </div>
-                        <div class="bar"><span class="progress" style="width: 90%"></span></div>
+                    <div class="space-y-4 text-slate-400 leading-relaxed">
+                        <p>
+                            I am a technologist at heart with a strategic mindset. With a robust educational background
+                            in Master of Computer Applications (MCA), I possess the unique ability to speak the language
+                            of both developers and business stakeholders.
+                        </p>
+                        <p>
+                            Currently successfully delivering value at <strong class="text-white">TRIAD
+                                Technologies</strong>, I specialize in dissecting complex problem statements,
+                            wireframing intuitive solutions, and validating their success through rigorous testing and
+                            data analysis.
+                        </p>
+                        <p>
+                            Whether it's optimizing SQL queries to improve backend performance or leading the design of
+                            a dealer management portal, my goal remains the same: <strong>efficiency, clarity, and
+                                impact</strong>. I don't just manage products; I champion them from conception to
+                            deployment.
+                        </p>
                     </div>
-                    <div class="skill-bar">
-                        <div class="info">
-                            <p>HTML / CSS</p>
-                            <span class="percent">85%</span>
+
+                    <div class="pt-6 grid grid-cols-2 gap-6">
+                        <div class="p-4 rounded-lg bg-white/5 border border-white/5">
+                            <h3 class="text-3xl font-bold text-indigo-400">5+</h3>
+                            <p class="text-sm text-slate-400 mt-1">Enterprise Projects</p>
                         </div>
-                        <div class="bar"><span class="progress" style="width: 85%"></span></div>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="info">
-                            <p>Manual & Functional Testing</p>
-                            <span class="percent">80%</span>
+                        <div class="p-4 rounded-lg bg-white/5 border border-white/5">
+                            <h3 class="text-3xl font-bold text-purple-400">SQL</h3>
+                            <p class="text-sm text-slate-400 mt-1">Data Proficiency</p>
                         </div>
-                        <div class="bar"><span class="progress" style="width: 80%"></span></div>
                     </div>
                 </div>
 
-                <!-- Tools -->
-                <div class="skill-category scroll-reveal delay-1">
-                    <h3><i class="fas fa-tools"></i> Tools</h3>
-                    <div class="skill-bar">
-                        <div class="info">
-                            <p>Balsamiq & Figma</p>
-                            <span class="percent">85%</span>
+                <div class="reveal delay-200">
+                    <h3 class="text-xl font-bold text-white mb-6">Technical Arsenal</h3>
+                    <div class="space-y-8">
+                        <div>
+                            <div class="flex justify-between text-sm mb-2">
+                                <span class="text-white">Product Strategy & Wireframing (Balsamiq/Figma)</span>
+                                <span class="text-indigo-400">90%</span>
+                            </div>
+                            <div class="h-2 bg-slate-800 rounded-full overflow-hidden">
+                                <div
+                                    class="h-full bg-gradient-to-r from-indigo-500 to-purple-500 w-[90%] transform origin-left animate-grow">
+                                </div>
+                            </div>
                         </div>
-                        <div class="bar"><span class="progress" style="width: 85%"></span></div>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="info">
-                            <p>Power BI & Tableau</p>
-                            <span class="percent">75%</span>
-                        </div>
-                        <div class="bar"><span class="progress" style="width: 75%"></span></div>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="info">
-                            <p>JIRA / Bug Tracking</p>
-                            <span class="percent">80%</span>
-                        </div>
-                        <div class="bar"><span class="progress" style="width: 80%"></span></div>
-                    </div>
-                </div>
 
-                <!-- Soft Skills -->
-                <div class="skill-category scroll-reveal delay-2">
-                    <h3><i class="fas fa-users"></i> Professional</h3>
-                    <div class="skill-bar">
-                        <div class="info">
-                            <p>Agile & Scrum</p>
-                            <span class="percent">95%</span>
+                        <div>
+                            <div class="flex justify-between text-sm mb-2">
+                                <span class="text-white">Database Management (SQL/MySQL)</span>
+                                <span class="text-indigo-400">85%</span>
+                            </div>
+                            <div class="h-2 bg-slate-800 rounded-full overflow-hidden">
+                                <div
+                                    class="h-full bg-gradient-to-r from-indigo-500 to-purple-500 w-[85%] transform origin-left animate-grow">
+                                </div>
+                            </div>
                         </div>
-                        <div class="bar"><span class="progress" style="width: 95%"></span></div>
+
+                        <div>
+                            <div class="flex justify-between text-sm mb-2">
+                                <span class="text-white">Quality Assurance & Testing</span>
+                                <span class="text-indigo-400">80%</span>
+                            </div>
+                            <div class="h-2 bg-slate-800 rounded-full overflow-hidden">
+                                <div
+                                    class="h-full bg-gradient-to-r from-indigo-500 to-purple-500 w-[80%] transform origin-left animate-grow">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="flex justify-between text-sm mb-2">
+                                <span class="text-white">Data Visualization (Power BI/Tableau)</span>
+                                <span class="text-indigo-400">75%</span>
+                            </div>
+                            <div class="h-2 bg-slate-800 rounded-full overflow-hidden">
+                                <div
+                                    class="h-full bg-gradient-to-r from-indigo-500 to-purple-500 w-[75%] transform origin-left animate-grow">
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="skill-bar">
-                        <div class="info">
-                            <p>Product Management</p>
-                            <span class="percent">85%</span>
-                        </div>
-                        <div class="bar"><span class="progress" style="width: 85%"></span></div>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="info">
-                            <p>Process Optimization</p>
-                            <span class="percent">80%</span>
-                        </div>
-                        <div class="bar"><span class="progress" style="width: 80%"></span></div>
+
+                    <div class="mt-10 flex flex-wrap gap-2">
+                        <span class="skill-tag">Agile Scrum</span>
+                        <span class="skill-tag">JIRA</span>
+                        <span class="skill-tag">Process Optimization</span>
+                        <span class="skill-tag">User Acceptance Testing</span>
+                        <span class="skill-tag">HTML/CSS</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="experience" class="section">
-        <div class="container">
-            <h2 class="section-title">Experience</h2>
-            <div class="timeline">
-                
-                <!-- Experience Item 1 -->
-                <div class="timeline-item scroll-reveal">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-date">Aug 2024 - Present</div>
-                    <div class="timeline-content">
-                        <h3>Business Analyst</h3>
-                        <h4>TRIAD Technologies Pvt Ltd</h4>
-                        <ul>
-                            <li>Assisted in wireframing, scoping, and functional enhancements for various business platforms.</li>
-                            <li>Conducted testing and quality assurance to ensure system reliability and performance.</li>
-                            <li>Managed and executed SQL queries for backend operations, ensuring data accuracy and process optimization.</li>
-                        </ul>
+    <!-- Experience Section -->
+    <section id="experience" class="py-24">
+        <div class="max-w-4xl mx-auto px-6">
+            <h2 class="section-heading text-center mb-16">Professional Trajectory</h2>
+
+            <div class="relative border-l-2 border-slate-800 ml-4 md:ml-0 space-y-12">
+
+                <!-- Role 1 -->
+                <div class="relative pl-12 md:pl-0 reveal">
+                    <div class="md:flex items-center justify-between group">
+                        <div class="hidden md:block w-5/12 text-right pr-12">
+                            <h3 class="text-xl font-bold text-white group-hover:text-indigo-400 transition-colors">
+                                Business Analyst</h3>
+                            <p class="text-indigo-400 font-medium">TRIAD Technologies Pvt Ltd</p>
+                        </div>
+
+                        <div
+                            class="absolute left-[-9px] md:left-1/2 md:-translate-x-1/2 w-5 h-5 bg-slate-900 border-4 border-indigo-500 rounded-full z-10">
+                        </div>
+
+                        <div class="md:w-5/12 md:pl-12">
+                            <div class="md:hidden mb-2">
+                                <h3 class="text-xl font-bold text-white">Business Analyst</h3>
+                                <p class="text-indigo-400 font-medium">TRIAD Technologies Pvt Ltd</p>
+                            </div>
+                            <span class="text-xs font-mono text-slate-500 mb-4 block">Aug 2024 - PRESENT</span>
+                            <ul class="space-y-3 text-slate-400 list-disc list-outside ml-4">
+                                <li>Driving functional enhancements for key business platforms through wireframing and
+                                    detailed scoping.</li>
+                                <li>Directly managing backend integrity by executing complex SQL queries for data
+                                    validation.</li>
+                                <li>Spearheading Quality Assurance (QA) cycles, reducing post-deployment bugs by
+                                    rigorous functional testing.</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Experience Item 2 -->
-                <div class="timeline-item scroll-reveal delay-1">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-date">May 2024 - Aug 2024</div>
-                    <div class="timeline-content">
-                        <h3>Associate Product Manager Intern</h3>
-                        <h4>Bookchor</h4>
-                        <ul>
-                            <li>Supported the Bookchor mobile app and website development by prioritizing features based on user needs.</li>
-                            <li>Conducted bug tracking, analysis, and testing, collaborating with developers for issue resolution.</li>
-                        </ul>
+                <!-- Role 2 -->
+                <div class="relative pl-12 md:pl-0 reveal">
+                    <div class="md:flex items-center justify-between group">
+                        <div class="hidden md:block w-5/12 text-right pr-12">
+                            <span class="text-xs font-mono text-slate-500 mb-4 block">May 2024 - Aug 2024</span>
+                            <ul class="space-y-3 text-slate-400 list-disc list-outside ml-4 text-right dir-rtl">
+                                <li>Prioritized feature backlog based on user feedback analysis for mobile app and
+                                    website.</li>
+                                <li>Collaborated with dev teams to resolve critical bugs, improving app stability
+                                    ratings.</li>
+                            </ul>
+                        </div>
+
+                        <div
+                            class="absolute left-[-9px] md:left-1/2 md:-translate-x-1/2 w-5 h-5 bg-slate-900 border-4 border-slate-700 group-hover:border-indigo-500 rounded-full z-10 transition-colors">
+                        </div>
+
+                        <div class="md:w-5/12 md:pl-12">
+                            <div class="md:hidden mb-2">
+                                <h3 class="text-xl font-bold text-white">Associate Product Manager Intern</h3>
+                                <p class="text-slate-200 font-medium">Bookchor</p>
+                            </div>
+                            <h3
+                                class="hidden md:block text-xl font-bold text-white group-hover:text-indigo-400 transition-colors">
+                                Associate APM Intern</h3>
+                            <p class="hidden md:block text-slate-200 font-medium">Bookchor</p>
+                            <div class="md:hidden mt-2">
+                                <span class="text-xs font-mono text-slate-500 mb-4 block">May 2024 - Aug 2024</span>
+                                <ul class="space-y-3 text-slate-400 list-disc list-outside ml-4">
+                                    <li>Prioritized feature backlog based on user feedback analysis.</li>
+                                    <li>Collaborated with dev teams to resolve critical bugs, improving app stability
+                                        ratings.</li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -211,146 +350,226 @@
         </div>
     </section>
 
-    <section id="projects" class="section">
-        <div class="container">
-            <h2 class="section-title">Projects</h2>
-            <div class="projects-grid">
-                
+    <!-- Projects Section -->
+    <section id="projects" class="py-24 bg-slate-900/50">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12">
+                <div>
+                    <h2 class="section-heading mb-4">Featured Projects</h2>
+                    <p class="text-slate-400 max-w-lg">A selection of platforms where I led design, strategy, and
+                        quality assurance.</p>
+                </div>
+                <a href="#contact"
+                    class="hidden md:block text-indigo-400 hover:text-white transition-colors text-sm font-medium">
+                    Discuss these projects <i class="fas fa-arrow-right ml-1"></i>
+                </a>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
                 <!-- Project 1 -->
-                <div class="project-card scroll-reveal">
-                    <div class="card-content">
-                        <h3>AkzoNobel Dulux Portal</h3>
-                        <span class="tech-tag">Wireframing</span>
-                        <span class="tech-tag">SQL</span>
-                        <span class="tech-tag">Testing</span>
-                        <p>Designed and structured the dealer management portal, focusing on machine requests and replacement history tracking. Conducted process validation for seamless performance.</p>
-                        <div class="card-links">
-                            <a href="#" class="btn-sm"><i class="fab fa-github"></i> Details</a>
+                <div
+                    class="group relative bg-slate-800 rounded-2xl overflow-hidden border border-white/5 hover:border-indigo-500/30 transition-all duration-300 hover:shadow-2xl reveal">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/80 to-transparent z-10">
+                    </div>
+                    <!-- Placeholder Card BG -->
+                    <div
+                        class="h-64 bg-slate-700 relative overflow-hidden group-hover:scale-105 transition-transform duration-700">
+                        <div
+                            class="absolute inset-0 opacity-20 bg-[url('https://source.unsplash.com/random/800x600/?dashboard,tech')] bg-cover bg-center">
                         </div>
+                    </div>
+
+                    <div
+                        class="absolute bottom-0 left-0 w-full p-8 z-20 translate-y-2 group-hover:translate-y-0 transition-transform">
+                        <div class="flex items-center gap-3 mb-3">
+                            <span
+                                class="px-2 py-1 text-xs font-bold bg-indigo-500/20 text-indigo-300 rounded border border-indigo-500/20">SQL</span>
+                            <span
+                                class="px-2 py-1 text-xs font-bold bg-purple-500/20 text-purple-300 rounded border border-purple-500/20">Wireframing</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-2">AkzoNobel Dulux Portal</h3>
+                        <p class="text-slate-300 mb-6 line-clamp-2 group-hover:line-clamp-none transition-all">
+                            Designed the heavy-duty dealer management portal focusing on tracking machine requests and
+                            replacement history. Streamlined the entire functional validation process.
+                        </p>
+                        <a href="#contact"
+                            class="inline-flex items-center text-white font-medium hover:text-indigo-400 transition-colors">
+                            Request Case Study <i class="fas fa-arrow-right ml-2 text-xs"></i>
+                        </a>
                     </div>
                 </div>
 
                 <!-- Project 2 -->
-                <div class="project-card scroll-reveal delay-1">
-                    <div class="card-content">
-                        <h3>Bluestore by AkzoNobel</h3>
-                        <span class="tech-tag">UX Design</span>
-                        <span class="tech-tag">QA</span>
-                        <p>Led wireframing and workflow development for order management. Conducted extensive testing to identify functional gaps and improve platform performance.</p>
-                        <div class="card-links">
-                            <a href="#" class="btn-sm"><i class="fab fa-github"></i> Details</a>
+                <div
+                    class="group relative bg-slate-800 rounded-2xl overflow-hidden border border-white/5 hover:border-indigo-500/30 transition-all duration-300 hover:shadow-2xl reveal delay-100">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/80 to-transparent z-10">
+                    </div>
+                    <div
+                        class="h-64 bg-slate-700 relative overflow-hidden group-hover:scale-105 transition-transform duration-700">
+                        <div
+                            class="absolute inset-0 opacity-20 bg-[url('https://source.unsplash.com/random/800x600/?mobile-app,ui')] bg-cover bg-center">
                         </div>
+                    </div>
+
+                    <div
+                        class="absolute bottom-0 left-0 w-full p-8 z-20 translate-y-2 group-hover:translate-y-0 transition-transform">
+                        <div class="flex items-center gap-3 mb-3">
+                            <span
+                                class="px-2 py-1 text-xs font-bold bg-blue-500/20 text-blue-300 rounded border border-blue-500/20">UX
+                                Design</span>
+                            <span
+                                class="px-2 py-1 text-xs font-bold bg-green-500/20 text-green-300 rounded border border-green-500/20">QA</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-2">Bluestore by AkzoNobel</h3>
+                        <p class="text-slate-300 mb-6 line-clamp-2 group-hover:line-clamp-none transition-all">
+                            Led the UX wireframing workflow for order management, directly impacting dealer
+                            interactions. Identified key functional gaps that improved overall platform stability.
+                        </p>
+                        <a href="#contact"
+                            class="inline-flex items-center text-white font-medium hover:text-indigo-400 transition-colors">
+                            Request Case Study <i class="fas fa-arrow-right ml-2 text-xs"></i>
+                        </a>
                     </div>
                 </div>
 
                 <!-- Project 3 -->
-                <div class="project-card scroll-reveal delay-2">
-                    <div class="card-content">
-                        <h3>Redi Platform</h3>
-                        <span class="tech-tag">Balsamiq</span>
-                        <span class="tech-tag">Wireframing</span>
-                        <p>Retailer and Distributor Platform. Designed intuitive wireframes to enhance navigation and conducted manual validation for bug resolution.</p>
-                        <div class="card-links">
-                            <a href="#" class="btn-sm"><i class="fab fa-github"></i> Details</a>
+                <div
+                    class="group relative bg-slate-800 rounded-2xl overflow-hidden border border-white/5 hover:border-indigo-500/30 transition-all duration-300 hover:shadow-2xl reveal">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/80 to-transparent z-10">
+                    </div>
+                    <div
+                        class="h-64 bg-slate-700 relative overflow-hidden group-hover:scale-105 transition-transform duration-700">
+                        <div
+                            class="absolute inset-0 opacity-20 bg-[url('https://source.unsplash.com/random/800x600/?wireframe,design')] bg-cover bg-center">
                         </div>
+                    </div>
+
+                    <div
+                        class="absolute bottom-0 left-0 w-full p-8 z-20 translate-y-2 group-hover:translate-y-0 transition-transform">
+                        <div class="flex items-center gap-3 mb-3">
+                            <span
+                                class="px-2 py-1 text-xs font-bold bg-orange-500/20 text-orange-300 rounded border border-orange-500/20">Balsamiq</span>
+                            <span
+                                class="px-2 py-1 text-xs font-bold bg-red-500/20 text-red-300 rounded border border-red-500/20">Testing</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-2">Redi Platform</h3>
+                        <p class="text-slate-300 mb-6 line-clamp-2 group-hover:line-clamp-none transition-all">
+                            Retailer and Distributor Platform. Architected intuitive wireframes to simplify complex
+                            navigation paths and conducted manual validation.
+                        </p>
+                        <a href="#contact"
+                            class="inline-flex items-center text-white font-medium hover:text-indigo-400 transition-colors">
+                            Request Case Study <i class="fas fa-arrow-right ml-2 text-xs"></i>
+                        </a>
                     </div>
                 </div>
 
-                <!-- Project 4 -->
-                <div class="project-card scroll-reveal delay-3">
-                    <div class="card-content">
-                        <h3>Addes by Amazon</h3>
-                        <span class="tech-tag">Data Management</span>
-                        <span class="tech-tag">SQL</span>
-                        <p>Managed Amazon’s offline product management portal. Optimized workflows for Addes ARE AM App to improve system performance.</p>
-                        <div class="card-links">
-                            <a href="#" class="btn-sm"><i class="fab fa-github"></i> Details</a>
+                <!-- Project 4 (Amazon) -->
+                <div
+                    class="group relative bg-slate-800 rounded-2xl overflow-hidden border border-white/5 hover:border-indigo-500/30 transition-all duration-300 hover:shadow-2xl reveal delay-100">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/80 to-transparent z-10">
+                    </div>
+                    <div
+                        class="h-64 bg-slate-700 relative overflow-hidden group-hover:scale-105 transition-transform duration-700">
+                        <div
+                            class="absolute inset-0 opacity-20 bg-[url('https://source.unsplash.com/random/800x600/?data,server')] bg-cover bg-center">
                         </div>
                     </div>
-                </div>
 
+                    <div
+                        class="absolute bottom-0 left-0 w-full p-8 z-20 translate-y-2 group-hover:translate-y-0 transition-transform">
+                        <div class="flex items-center gap-3 mb-3">
+                            <span
+                                class="px-2 py-1 text-xs font-bold bg-indigo-500/20 text-indigo-300 rounded border border-indigo-500/20">Data
+                                Mgmt</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-2">Addes by Amazon</h3>
+                        <p class="text-slate-300 mb-6 line-clamp-2 group-hover:line-clamp-none transition-all">
+                            Managed offline product management portal data. Optimized workflows for Addes ecosystem apps
+                            to boost system responsiveness.
+                        </p>
+                        <a href="#contact"
+                            class="inline-flex items-center text-white font-medium hover:text-indigo-400 transition-colors">
+                            Request Case Study <i class="fas fa-arrow-right ml-2 text-xs"></i>
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <section id="education" class="section">
-        <div class="container">
-            <h2 class="section-title">Education</h2>
-            <div class="education-grid">
-                <div class="education-card scroll-reveal">
-                    <i class="fas fa-graduation-cap"></i>
-                    <h3>Masters in Computer Application</h3>
-                    <h4>Jagannath University</h4>
-                    <p class="date">2022 - 2024</p>
-                </div>
-                <div class="education-card scroll-reveal delay-1">
-                    <i class="fas fa-university"></i>
-                    <h3>Bachelors in Computer Application</h3>
-                    <h4>Singhania University</h4>
-                    <p class="date">2019 - 2022</p>
+    <!-- Education (Minimal) -->
+    <section class="py-24">
+        <div class="max-w-7xl mx-auto px-6">
+            <div
+                class="p-8 md:p-12 rounded-3xl bg-gradient-to-r from-slate-800 to-slate-900 border border-white/5 relative overflow-hidden reveal">
+                <div class="relative z-10 flex flex-col md:flex-row justify-between items-center gap-8">
+                    <div>
+                        <h2 class="text-2xl font-bold text-white mb-2">Academic Foundation</h2>
+                        <div class="space-y-2 text-slate-400">
+                            <p><strong class="text-white">MCA</strong> • Jagannath University (2022-2024)</p>
+                            <p><strong class="text-white">BCA</strong> • Singhania University (2019-2022)</p>
+                        </div>
+                    </div>
+                    <div class="h-px md:w-px w-full md:h-16 bg-slate-700"></div>
+                    <div class="text-center md:text-left">
+                        <h2 class="text-2xl font-bold text-white mb-2">Continuous Learning</h2>
+                        <p class="text-slate-400">Always upgrading skills in Data Analytics, Product Strategy, and
+                            Modern Web Technologies.</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="contact" class="section">
-        <div class="container">
-            <h2 class="section-title">Get In Touch</h2>
-            <div class="contact-container">
-                <div class="contact-info scroll-reveal">
-                    <div class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <div>
-                            <h4>Email</h4>
-                            <p>Rawatsaurabh620@gmail.com</p>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 relative">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="text-center mb-16 space-y-4">
+                <h2 class="section-heading">Let's Build Something Great</h2>
+                <p class="text-slate-400">Open for opportunities in Business Analysis and Product Management.</p>
+            </div>
+
+            <div
+                class="bg-slate-800/50 backdrop-blur-xl border border-white/5 p-8 md:p-12 rounded-3xl shadow-2xl reveal">
+                <form id="contact-form" class="space-y-6">
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="form-group">
+                            <input type="text" id="name" required
+                                class="w-full bg-slate-900/50 border border-slate-700 rounded-xl px-5 py-4 text-white focus:outline-none focus:border-indigo-500 transition-colors"
+                                placeholder="Your Name">
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" required
+                                class="w-full bg-slate-900/50 border border-slate-700 rounded-xl px-5 py-4 text-white focus:outline-none focus:border-indigo-500 transition-colors"
+                                placeholder="Your Email">
                         </div>
                     </div>
-                    <div class="contact-item">
-                        <i class="fas fa-phone"></i>
-                        <div>
-                            <h4>Phone</h4>
-                            <p>+91 6307014942</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <div>
-                            <h4>Location</h4>
-                            <p>New Delhi, India</p>
-                        </div>
-                    </div>
-                    <div class="social-links">
-                        <a href="https://linkedin.com/in/saurabhrawat7june" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                        <!-- Placeholder social links -->
-                        <a href="#"><i class="fab fa-github"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                    </div>
-                </div>
-                
-                <form id="contact-form" class="contact-form scroll-reveal delay-1">
                     <div class="form-group">
-                        <input type="text" id="name" required placeholder=" ">
-                        <label for="name">Name</label>
+                        <textarea id="message" rows="4" required
+                            class="w-full bg-slate-900/50 border border-slate-700 rounded-xl px-5 py-4 text-white focus:outline-none focus:border-indigo-500 transition-colors"
+                            placeholder="Briefly describe your project or enquiry..."></textarea>
                     </div>
-                    <div class="form-group">
-                        <input type="email" id="email" required placeholder=" ">
-                        <label for="email">Email</label>
-                    </div>
-                    <div class="form-group">
-                        <textarea id="message" required placeholder=" " rows="5"></textarea>
-                        <label for="message">Message</label>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Send Message</button>
-                    <p id="form-status" class="form-status"></p>
+
+                    <button type="submit"
+                        class="w-full py-4 bg-gradient-to-r from-indigo-500 to-purple-600 text-white font-bold rounded-xl shadow-lg hover:shadow-indigo-500/25 transform hover:-translate-y-1 transition-all duration-300">
+                        Send Message
+                    </button>
+
+                    <p id="form-msg" class="text-center text-sm font-medium hidden"></p>
                 </form>
             </div>
         </div>
     </section>
 
-    <footer>
-        <p>&copy; 2026 Saurabh Rawat. Built with <i class="fas fa-heart"></i> & Code.</p>
+    <!-- Footer -->
+    <footer class="py-12 border-t border-white/5 text-center text-slate-500 text-sm">
+        <p>&copy; 2026 Saurabh Rawat. All rights reserved.</p>
+        <p class="mt-2">Designed with purpose. Built for impact.</p>
     </footer>
 
     <script src="script.js"></script>
 </body>
+
 </html>
