@@ -1,193 +1,203 @@
-/* =========================================
-   SCRIPT.JS
-   - Theme Toggle
-   - Typing Animation
-   - Scroll Observer
-   - Mobile Menu
-   - Contact Form Mock
-   ========================================= */
+/*
+    Portfolio Logic
+    - Typing Animation
+    - Scroll Reveals
+    - Mobile Menu
+    - Form Handling
+*/
 
 document.addEventListener('DOMContentLoaded', () => {
-    
-    // --- 1. Typing Animation ---
-    const typingElement = document.getElementById('typing-element');
-    const roles = ['Business Analyst', 'Product Enthusiast', 'Tech Consultant', 'Developer'];
-    let roleIndex = 0;
+
+    // ----------------------------------------------------------------
+    // 1. TYPING EFFECT
+    // ----------------------------------------------------------------
+    const typingElement = document.querySelector('.typing-text');
+    const phrases = [
+        "Business Strategy",
+        "Product Roadmaps",
+        "Technical Solutions",
+        "Data-Driven Decisions"
+    ];
+
+    let phraseIndex = 0;
     let charIndex = 0;
     let isDeleting = false;
     let typeSpeed = 100;
 
-    function typeEffect() {
-        const currentRole = roles[roleIndex];
-        
+    function type() {
+        const currentPhrase = phrases[phraseIndex];
+
         if (isDeleting) {
-            typingElement.textContent = currentRole.substring(0, charIndex - 1);
+            typingElement.textContent = currentPhrase.substring(0, charIndex - 1);
             charIndex--;
-            typeSpeed = 50;
+            typeSpeed = 40; // Faster deleting
         } else {
-            typingElement.textContent = currentRole.substring(0, charIndex + 1);
+            typingElement.textContent = currentPhrase.substring(0, charIndex + 1);
             charIndex++;
-            typeSpeed = 100;
+            typeSpeed = 80; // Normal typing
         }
 
-        if (!isDeleting && charIndex === currentRole.length) {
+        if (!isDeleting && charIndex === currentPhrase.length) {
             isDeleting = true;
-            typeSpeed = 2000; // Pause at end
+            typeSpeed = 2000; // Pause at end of phrase
         } else if (isDeleting && charIndex === 0) {
             isDeleting = false;
-            roleIndex = (roleIndex + 1) % roles.length;
-            typeSpeed = 500; // Pause before new word
+            phraseIndex = (phraseIndex + 1) % phrases.length;
+            typeSpeed = 500; // Pause before new phrase
         }
 
-        setTimeout(typeEffect, typeSpeed);
-    }
-    
-    // Start typing effect
-    typeEffect();
-
-
-    // --- 2. Theme Toggle ---
-    const themeToggle = document.getElementById('theme-toggle');
-    const body = document.body;
-    const icon = themeToggle.querySelector('i');
-
-    // Check local storage
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'light') {
-        body.classList.add('light-mode');
-        icon.classList.remove('fa-moon');
-        icon.classList.add('fa-sun');
+        setTimeout(type, typeSpeed);
     }
 
-    themeToggle.addEventListener('click', () => {
-        body.classList.toggle('light-mode');
-        
-        if (body.classList.contains('light-mode')) {
-            icon.classList.remove('fa-moon');
-            icon.classList.add('fa-sun');
-            localStorage.setItem('theme', 'light');
-        } else {
-            icon.classList.remove('fa-sun');
-            icon.classList.add('fa-moon');
-            localStorage.setItem('theme', 'dark');
-        }
-    });
+    // Start typing if element exists
+    if (typingElement) type();
 
 
-    // --- 3. Navbar Scroll & Mobile Menu ---
-    const navbar = document.querySelector('.navbar');
-    const hamburger = document.querySelector('.hamburger');
-    const navLinks = document.querySelector('.nav-links');
+    // ----------------------------------------------------------------
+    // 2. SCROLL REVEAL ANIMATION (Intersection Observer)
+    // ----------------------------------------------------------------
+    const revealElements = document.querySelectorAll('.reveal');
 
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            navbar.classList.add('scrolled');
-        } else {
-            navbar.classList.remove('scrolled');
-        }
-    });
-
-    hamburger.addEventListener('click', () => {
-        hamburger.classList.toggle('active');
-        navLinks.classList.toggle('active');
-    });
-
-    // Close mobile menu when clicking a link
-    document.querySelectorAll('.nav-links a').forEach(link => {
-        link.addEventListener('click', () => {
-            hamburger.classList.remove('active');
-            navLinks.classList.remove('active');
-        });
-    });
-
-
-    // --- 4. Scroll Animations (Intersection Observer) ---
-    const observerOptions = {
-        threshold: 0.15,
-        rootMargin: "0px 0px -50px 0px"
-    };
-
-    const observer = new IntersectionObserver((entries) => {
+    const revealObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-                
-                // Animate progress bars only when visible
-                if (entry.target.classList.contains('skill-category')) {
-                   const bars = entry.target.querySelectorAll('.progress');
-                   bars.forEach(bar => {
-                       bar.style.width = bar.parentElement.previousElementSibling.querySelector('.percent').innerText;
-                   });
-                }
-                
-                observer.unobserve(entry.target); // Only animate once
+                entry.target.classList.add('active');
+                observer.unobserve(entry.target); // Only trigger once
             }
         });
-    }, observerOptions);
-
-    document.querySelectorAll('.scroll-reveal').forEach(el => {
-        observer.observe(el);
-    });
-    
-    // Special handling for nested skill categories if they aren't directly observed
-    document.querySelectorAll('.skill-feature').forEach(el => {
-        observer.observe(el);
+    }, {
+        root: null,
+        threshold: 0.15,
+        rootMargin: "0px 0px -50px 0px" // Trigger slightly before element is effectively visible
     });
 
-
-    // --- 5. Custom Cursor ---
-    const cursorDot = document.querySelector('.cursor-dot');
-    const cursorOutline = document.querySelector('.cursor-outline');
-
-    window.addEventListener('mousemove', (e) => {
-        const posX = e.clientX;
-        const posY = e.clientY;
-
-        cursorDot.style.left = `${posX}px`;
-        cursorDot.style.top = `${posY}px`;
-
-        // Add some lag to outline for smooth effect
-        cursorOutline.animate({
-            left: `${posX}px`,
-            top: `${posY}px`
-        }, { duration: 500, fill: "forwards" });
-    });
+    revealElements.forEach(el => revealObserver.observe(el));
 
 
-    // --- 6. Contact Form Validation (Mock) ---
-    const contactForm = document.getElementById('contact-form');
-    const formStatus = document.getElementById('form-status');
+    // ----------------------------------------------------------------
+    // 3. NAVBAR SCROLL EFFECT
+    // ----------------------------------------------------------------
+    const navbar = document.getElementById('navbar');
 
-    contactForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        
-        // Simple mock validation
-        const name = document.getElementById('name').value;
-        const email = document.getElementById('email').value;
-        const message = document.getElementById('message').value;
-
-        if (name && email && message) {
-            const btn = contactForm.querySelector('button');
-            const originalText = btn.innerText;
-            
-            btn.innerText = 'Sending...';
-            btn.disabled = true;
-
-            // Simulate API call
-            setTimeout(() => {
-                btn.innerText = 'Sent Successfully!';
-                btn.style.background = '#10b981'; // Green
-                formStatus.innerText = "Thanks for reaching out! I'll get back to you soon.";
-                formStatus.style.color = '#10b981';
-                contactForm.reset();
-                
-                setTimeout(() => {
-                    btn.innerText = originalText;
-                    btn.disabled = false;
-                    btn.style.background = ''; 
-                    formStatus.innerText = '';
-                }, 3000);
-            }, 1500);
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 20) {
+            navbar.classList.add('scrolled', 'border-b', 'border-white/10');
+            navbar.classList.remove('border-transparent');
+        } else {
+            navbar.classList.remove('scrolled', 'border-b', 'border-white/10');
+            navbar.classList.add('border-transparent');
         }
     });
+
+
+    // ----------------------------------------------------------------
+    // 4. MOBILE MENU
+    // ----------------------------------------------------------------
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const icon = menuBtn.querySelector('i');
+    const mobileLinks = document.querySelectorAll('.mobile-link');
+    let isMenuOpen = false;
+
+    menuBtn.addEventListener('click', () => {
+        isMenuOpen = !isMenuOpen;
+
+        if (isMenuOpen) {
+            mobileMenu.classList.remove('translate-x-full');
+            icon.classList.remove('fa-bars');
+            icon.classList.add('fa-times');
+            document.body.style.overflow = 'hidden'; // Lock scroll
+
+            // Stagger animation manually via JS Class toggle is cleaner in CSS but this ensures trigger
+            setTimeout(() => mobileMenu.classList.add('active'), 50);
+
+        } else {
+            mobileMenu.classList.add('translate-x-full');
+            mobileMenu.classList.remove('active');
+            icon.classList.remove('fa-times');
+            icon.classList.add('fa-bars');
+            document.body.style.overflow = 'auto'; // Unlock scroll
+        }
+    });
+
+    // Close menu on link click
+    mobileLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            isMenuOpen = false;
+            mobileMenu.classList.add('translate-x-full');
+            mobileMenu.classList.remove('active');
+            icon.classList.remove('fa-times');
+            icon.classList.add('fa-bars');
+            document.body.style.overflow = 'auto';
+        });
+    });
+
+
+    // ----------------------------------------------------------------
+    // 5. THEME TOGGLE (Optional)
+    // ----------------------------------------------------------------
+    const themeBtn = document.getElementById('theme-toggle');
+    const themeIcon = themeBtn.querySelector('i');
+
+    // Check saved theme
+    if (localStorage.getItem('theme') === 'light') {
+        document.body.classList.add('light-mode');
+        themeIcon.classList.remove('fa-moon');
+        themeIcon.classList.add('fa-sun');
+    }
+
+    themeBtn.addEventListener('click', () => {
+        document.body.classList.toggle('light-mode');
+
+        if (document.body.classList.contains('light-mode')) {
+            themeIcon.classList.remove('fa-moon');
+            themeIcon.classList.add('fa-sun');
+            localStorage.setItem('theme', 'light');
+        } else {
+            themeIcon.classList.remove('fa-sun');
+            themeIcon.classList.add('fa-moon');
+            localStorage.setItem('theme', 'dark'); // Default
+        }
+    });
+
+
+    // ----------------------------------------------------------------
+    // 6. FORM MOCK SUBMISSION
+    // ----------------------------------------------------------------
+    const form = document.getElementById('contact-form');
+    const formMsg = document.getElementById('form-msg');
+
+    if (form) {
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const btn = form.querySelector('button');
+            const originalText = btn.textContent;
+
+            btn.textContent = 'Sending...';
+            btn.disabled = true;
+            btn.classList.add('opacity-70', 'cursor-not-allowed');
+
+            setTimeout(() => {
+                btn.textContent = 'Message Sent';
+                btn.classList.remove('from-indigo-500', 'to-purple-600');
+                btn.classList.add('bg-green-500'); // Simple override
+
+                formMsg.textContent = "Thank you! I'll be in touch shortly.";
+                formMsg.classList.remove('hidden');
+                formMsg.classList.add('text-green-400', 'mt-4');
+
+                form.reset();
+
+                setTimeout(() => {
+                    btn.textContent = originalText;
+                    btn.disabled = false;
+                    btn.classList.remove('opacity-70', 'cursor-not-allowed', 'bg-green-500');
+                    btn.classList.add('from-indigo-500', 'to-purple-600');
+                    formMsg.classList.add('hidden');
+                }, 4000);
+
+            }, 1500);
+        });
+    }
+
 });
