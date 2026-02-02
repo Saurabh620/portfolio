@@ -58,17 +58,21 @@ document.addEventListener('DOMContentLoaded', () => {
     // ----------------------------------------------------------------
     const revealElements = document.querySelectorAll('.reveal');
 
+    // Progressive Enhancement: Hide elements only if JS runs
+    revealElements.forEach(el => el.classList.add('reveal-pending'));
+
     const revealObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.classList.add('active');
-                observer.unobserve(entry.target); // Only trigger once
+                entry.target.classList.remove('reveal-pending'); // Remove helper class
+                entry.target.classList.add('active'); // Trigger animation
+                observer.unobserve(entry.target);
             }
         });
     }, {
         root: null,
         threshold: 0.15,
-        rootMargin: "0px 0px -50px 0px" // Trigger slightly before element is effectively visible
+        rootMargin: "0px 0px -50px 0px"
     });
 
     revealElements.forEach(el => revealObserver.observe(el));
