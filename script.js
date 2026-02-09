@@ -22,28 +22,28 @@ document.addEventListener('DOMContentLoaded', () => {
     let phraseIndex = 0;
     let charIndex = 0;
     let isDeleting = false;
-    let typeSpeed = 100;
+    let typeSpeed = 60;
 
     function type() {
         const currentPhrase = phrases[phraseIndex];
 
         if (isDeleting) {
-            typingElement.textContent = currentPhrase.substring(0, charIndex - 1);
-            charIndex--;
-            typeSpeed = 40; // Faster deleting
+            charIndex = Math.max(0, charIndex - 1);
+            typingElement.textContent = currentPhrase.substring(0, charIndex);
+            typeSpeed = 30; // faster deleting
         } else {
-            typingElement.textContent = currentPhrase.substring(0, charIndex + 1);
-            charIndex++;
-            typeSpeed = 80; // Normal typing
+            charIndex = Math.min(currentPhrase.length, charIndex + 1);
+            typingElement.textContent = currentPhrase.substring(0, charIndex);
+            typeSpeed = 60; // typing speed
         }
 
         if (!isDeleting && charIndex === currentPhrase.length) {
             isDeleting = true;
-            typeSpeed = 2000; // Pause at end of phrase
+            typeSpeed = 1200; // pause at end
         } else if (isDeleting && charIndex === 0) {
             isDeleting = false;
             phraseIndex = (phraseIndex + 1) % phrases.length;
-            typeSpeed = 500; // Pause before new phrase
+            typeSpeed = 300; // short pause before new phrase
         }
 
         setTimeout(type, typeSpeed);

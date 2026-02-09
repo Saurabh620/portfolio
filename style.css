@@ -44,6 +44,8 @@ body {
     line-height: 1.6;
     overflow-x: hidden;
     transition: background-color 0.3s ease, color 0.3s ease;
+    width:100vw;
+    overflow-x: hidden;
 }
 
 h1,
@@ -96,6 +98,10 @@ a {
 
 .z-20 {
     z-index: 20;
+}
+
+.z-30 {
+    z-index: 30;
 }
 
 .z-40 {
@@ -638,6 +644,12 @@ a {
     --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(99, 102, 241, 0));
 }
 
+/* Missing variant used in HTML for hero typing gradient */
+.from-indigo-400 {
+    --tw-gradient-from: #818cf8;
+    --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(129, 140, 248, 0));
+}
+
 .from-slate-800 {
     --tw-gradient-from: #1e293b;
     --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(30, 41, 59, 0));
@@ -675,6 +687,57 @@ a {
 .bg-clip-text {
     -webkit-background-clip: text;
     background-clip: text;
+}
+
+/* Typing text helper: ensures gradient text and proper clipping */
+.typing-text {
+    display: inline-block;
+    white-space: nowrap;
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+}
+
+/* Prevent layout shift while typing by reserving width for the longest phrase */
+.typing-text {
+    min-width: 24ch;
+    vertical-align: middle;
+}
+
+/* Blinking caret to improve typing UX */
+.typing-text::after {
+    content: "|";
+    display: inline-block;
+    margin-left: 0.35rem;
+    opacity: 1;
+    animation: caretBlink 1s steps(1) infinite;
+    color: var(--text-primary);
+}
+
+@keyframes caretBlink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+}
+
+/* Line-clamp utilities used by project cards */
+.line-clamp-2 {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+}
+
+.line-clamp-none {
+    -webkit-line-clamp: unset;
+    display: block;
+}
+
+/* Support the utility-like `group-hover:line-clamp-none` used in HTML */
+.group:hover .group-hover\:line-clamp-none {
+    -webkit-line-clamp: unset;
+    display: block;
 }
 
 /* Borders & Radius */
@@ -990,6 +1053,11 @@ a {
     text-decoration: none;
 }
 
+.profileViwSection {
+    position: absolute;
+    right: 50px;
+}
+
 .btn-primary {
     background: linear-gradient(135deg, var(--brand-indigo), var(--brand-purple));
     color: white;
@@ -1056,6 +1124,21 @@ a {
         transform: translateY(0);
     }
 }
+
+/* Fade utilities used in HTML (was missing) */
+.animate-fade-up {
+    animation: fadeUp 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+.animate-fade-in {
+    animation: fadeUp 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+/* Delay helpers (used in HTML as delay-100 / delay-200 / delay-1000) */
+.delay-100 { transition-delay: 100ms; animation-delay: 100ms; }
+.delay-200 { transition-delay: 200ms; animation-delay: 200ms; }
+.delay-500 { transition-delay: 500ms; animation-delay: 500ms; }
+.delay-1000 { transition-delay: 1000ms; animation-delay: 1000ms; }
 
 .animate-pulse-slow {
     animation: pulse 8s cubic-bezier(0.4, 0, 0.6, 1) infinite;
